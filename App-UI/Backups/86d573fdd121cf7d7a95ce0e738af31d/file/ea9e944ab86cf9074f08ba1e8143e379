@@ -1,0 +1,43 @@
+file:///home/manan/react/laundryNITK/history-card.js {"mtime":1570789876943,"size":0,"etag":"341m74ijd0","orphaned":false}
+import React,{useState} from 'react';
+import { StyleSheet, Text, View, TextInput,Button ,ScrollView,Image} from 'react-native';
+import { Card, ListItem,Icon } from 'react-native-elements'
+import { HorizontalTimeline } from 'react-native-horizontal-timeline';
+
+
+export default function historyCard() {
+
+  return(
+    <Card >
+      <View style={styles.historyCard1}>
+          <Text>25/01/1941</Text>
+          <Text>25/01/1941</Text>
+      </View>
+  
+      <View style={styles.historyCard2}>
+          <Text>250/-</Text>
+          <Text>details</Text>
+      </View>
+      
+    </Card>
+
+  );
+
+}
+
+const styles = StyleSheet.create({
+  //add classes here
+  historyCard1:{
+    flexDirection:'row',
+    padding:7,
+    justifyContent:'space-between'
+  },
+  historyCard2:{
+    flexDirection:'row',
+    padding:1,
+    justifyContent:'space-between'
+  },
+  scrolling:{
+    padding:30
+  }
+});
