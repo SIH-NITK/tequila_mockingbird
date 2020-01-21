@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback,Slider, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback,Slider, Image, Dimensions } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
@@ -38,10 +38,36 @@ class adminHome extends React.Component {
             modalVisible: false,
             customerKey: "",
             result: {},
-            value:50,
+            value:0,
             timestamps:[],
-            urlLocation:'../../assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(0) + '_clipped.jpg'
-
+            urlLocation :" ",
+            // urlLocation:"/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_201701_15_1_clipped.jpg",
+            images: [
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201701_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201701_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201702_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201702_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201703_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201703_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201704_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201704_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201705_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201705_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201706_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201706_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201707_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201707_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201708_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201708_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201709_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201709_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201710_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201710_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201711_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201711_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_2_clipped.jpg')
+              ]
 
         }
         this._isMounted = false;
@@ -193,18 +219,25 @@ class adminHome extends React.Component {
         //   };
         // });
         console.log(value);
+        this.setState({value:value-1})
         console.log(this.state.timestamps);
-        urlLocation =  '../../assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(value) + '_clipped.jpg';
-        console.log(urlLocation);
-        this.setState({urlLocation:urlLocation});
+        // urlLocation =  "/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_"+ this.fromIToImage(value) + "_clipped.jpg";
+        // console.log(urlLocation);
+        // this.setState({urlLocation:urlLocation});
 
+    }
+    handlePress(evt){
+        console.log(`x coord = ${evt.nativeEvent.locationX}`);
     }
     
     render() {
-        const {value} = this.state;
+        // const {value} = this.state;
+        const w = Dimensions.get('window');
         var urlLocation = this.state.urlLocation;
         console.log(this.state.urlLocation);
-
+        console.log(typeof(this.state.urlLocation));
+        var images = this.state.images;
+        console.log(images);
         tab = createMaterialTopTabNavigator(
             {
                 AddLaundry: createScreen,
@@ -237,6 +270,14 @@ class adminHome extends React.Component {
             }
         )
         TabApp = createAppContainer(tab);
+        value = this.state.value;
+        value = 5;
+
+        var url_image = this.state.urlLocation;
+        var v = this.fromIToImage(value);
+        console.log(url_image);
+        // var url_image = require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ v +'_clipped.jpg')
+        console.log("url"+url_image);
         return (
             <View style={styles.container}>
                 
@@ -249,11 +290,16 @@ class adminHome extends React.Component {
                 value={value}       
                 />
 
-                <Image  
-                    
-                    source ={require('../../assets/homeImages/overlayed/awifs_ndvi_'+`${this.fromIToImage(this.state.value)}`+'_clipped.jpg')}
-                    style={{width: 400, height: 400}} 
-                />
+                <TouchableOpacity onPress={(evt) => this.handlePress(evt) } >
+                `               <Image  
+                                    
+                                    // source ={require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(value) +'_clipped.jpg')}
+                                    source={images[this.state.value]}
+                                    style={{width: 400, height: 400}} 
+                                />
+                </TouchableOpacity>
+
+        
             
             </View>
 
