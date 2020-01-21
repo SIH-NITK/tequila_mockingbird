@@ -4,7 +4,7 @@
 <!-- Mirrored from seantheme.com/color-admin/admin/html/index_v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Jan 2020 10:57:47 GMT -->
 <head>
 	<meta charset="utf-8" />
-	<title>Dashboard V3</title>
+	<title>Crop Cycle Management</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -29,12 +29,12 @@
 	<!-- end #page-loader -->
 	
 	<!-- begin #page-container -->
-	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+	<div id="page-container" style="margin-top: -30px !important;" class="fade page-sidebar-fixed page-header-fixed">
 		<!-- begin #header -->
 		<div id="header" class="header navbar-default">
 			<!-- begin navbar-header -->
 			<div class="navbar-header">
-				<a href="index_v3.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+				<a href="index_v3.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Crop </b> Cycle</a>
 				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -66,24 +66,13 @@
 		<div id="content" class="content" style="margin-left:0px;">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb float-xl-right">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li>
-				<li class="breadcrumb-item active">Dashboard v3</li>
+				<li class="breadcrumb-item">Home</li>
+				<li class="breadcrumb-item">Dashboard</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header mb-3">Dashboard v3</h1>
+			<h1 class="page-header mb-3">Crop Calendar</h1>
 			<!-- end page-header -->
-			<!-- begin daterange-filter -->
-			<div class="d-sm-flex align-items-center mb-3">
-				<a href="#" class="btn btn-inverse mr-2 text-truncate" id="daterange-filter">
-					<i class="fa fa-calendar fa-fw text-white-transparent-5 ml-n1"></i> 
-					<span>1 Jun 2020 - 7 Jun 2020</span>
-					<b class="caret"></b>
-				</a>
-				<div class="text-muted f-w-600 mt-2 mt-sm-0">compared to <span id="daterange-prev-date">24 Mar-30 Apr 2020</span></div>
-			</div>
-			<!-- end daterange-filter -->
 			<!-- begin row -->
 			<div class="row">
 				<!-- begin col-6 -->
@@ -91,28 +80,19 @@
 					<!-- begin card -->
 					<div class="card border-0 mb-3 overflow-hidden bg-dark text-white">
 						<!-- begin card-body -->
-						<div class="card-body">
+						<div class="card-body" style="height: 205px">
 							<!-- begin row -->
 							<div class="row">
 								<!-- begin col-7 -->
 								<div class="col-xl-7 col-lg-8">
-									<!-- begin title -->
-									<div class="mb-3 text-grey">
-										<b>TOTAL SALES</b>
-										<span class="ml-2">
-											<i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total sales" data-placement="top" data-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i>
-										</span>
-									</div>
-									<!-- end title -->
 									<!-- begin total-sales -->
-									<div class="d-flex mb-1">
-										<h2 class="mb-0">$<span data-animation="number" data-value="64559.25">0.00</span></h2>
-										<div class="ml-auto mt-n1 mb-n1"><div id="total-sales-sparkline"></div></div>
+									<div class="d-flex mb-2">
+										<h3 class="mb-0 text-red">Duration of Harvest: </h3><h3 class="mb-0" style="margin-left: 4px"> 2 months</h3>
 									</div>
 									<!-- end total-sales -->
 									<!-- begin percentage -->
 									<div class="mb-3 text-grey">
-										<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="33.21">0.00</span>% compare to last week
+										<span style="visibility: hidden" data-animation="number" data-value="33.21">0.00</span>
 									</div>
 									<!-- end percentage -->
 									<hr class="bg-white-transparent-2" />
@@ -120,20 +100,14 @@
 									<div class="row text-truncate">
 										<!-- begin col-6 -->
 										<div class="col-6">
-											<div class="f-s-12 text-grey">Total sales order</div>
-											<div class="f-s-18 m-b-5 f-w-600 p-b-1" data-animation="number" data-value="1568">0</div>
-											<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
-												<div class="progress-bar progress-bar-striped rounded-right bg-teal" data-animation="width" data-value="55%" style="width: 0%"></div>
-											</div>
+											<div class="text-blue" style="font-size: 20px">Date of Sowing</div>
+											<h3 class="mb-0">20<sup>th</sup> Jan, 2020</h3>
 										</div>
 										<!-- end col-6 -->
 										<!-- begin col-6 -->
 										<div class="col-6">
-											<div class="f-s-12 text-grey">Avg. sales per order</div>
-											<div class="f-s-18 m-b-5 f-w-600 p-b-1">$<span data-animation="number" data-value="41.20">0.00</span></div>
-											<div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
-												<div class="progress-bar progress-bar-striped rounded-right" data-animation="width" data-value="55%" style="width: 0%"></div>
-											</div>
+											<div class="text-blue" style="font-size: 20px">Date of Harvest</div>
+											<h3 class="mb-0">20<sup>th</sup> Jan, 2020</h3>
 										</div>
 										<!-- end col-6 -->
 									</div>
@@ -142,7 +116,7 @@
 								<!-- end col-7 -->
 								<!-- begin col-5 -->
 								<div class="col-xl-5 col-lg-4 align-items-center d-flex justify-content-center">
-									<img src="https://seantheme.com/color-admin/admin/assets/img/svg/img-1.svg" height="150px" class="d-none d-lg-block" />
+									<img src="../images/calendar1.png" height="150px" class="d-none d-lg-block" />
 								</div>
 								<!-- end col-5 -->
 							</div>
@@ -158,38 +132,27 @@
 					<!-- begin row -->
 					<div class="row">
 						<!-- begin col-6 -->
-						<div class="col-sm-6">
+						<div class="col-sm-12">
 							<!-- begin card -->
 							<div class="card border-0 text-truncate mb-3 bg-dark text-white">
 								<!-- begin card-body -->
-								<div class="card-body">
+								<div class="card-body" style="height: 205px;">
 									<!-- begin title -->
-									<div class="mb-3 text-grey">
-										<b class="mb-3">CONVERSION RATE</b> 
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Conversion Rate" data-placement="top" data-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+									<div class="d-flex mb-2">
+										<h3 class="mb-0 text-red">Crop Type</h3><h3 class="mb-0" style="margin-left: 4px"></h3>
 									</div>
 									<!-- end title -->
-									<!-- begin conversion-rate -->
-									<div class="d-flex align-items-center mb-1">
-										<h2 class="text-white mb-0"><span data-animation="number" data-value="2.19">0.00</span>%</h2>
-										<div class="ml-auto">
-											<div id="conversion-rate-sparkline"></div>
-										</div>
-									</div>
-									<!-- end conversion-rate -->
 									<!-- begin percentage -->
 									<div class="mb-4 text-grey">
-										<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="0.50">0.00</span>% compare to last week
 									</div>
 									<!-- end percentage -->
 									<!-- begin info-row -->
-									<div class="d-flex mb-2">
+									<div class="d-flex mb-1">
 										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-red f-s-8 mr-2"></i>
-											Added to cart
+											Rabi Crop
 										</div>
 										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="262">0</span>%</div>
+											<div class="text-grey f-s-11"> <span data-animation="number" data-value="262">0</span>%</div>
 											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="3.79">0.00</span>%</div>
 										</div>
 									</div>
@@ -197,11 +160,10 @@
 									<!-- begin info-row -->
 									<div class="d-flex mb-2">
 										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-warning f-s-8 mr-2"></i>
-											Reached checkout
+											Kharif Crop
 										</div>
 										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="11">0</span>%</div>
+											<div class="text-grey f-s-11"> <span data-animation="number" data-value="11">0</span>%</div>
 											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="3.85">0.00</span>%</div>
 										</div>
 									</div>
@@ -209,79 +171,11 @@
 									<!-- begin info-row -->
 									<div class="d-flex">
 										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-lime f-s-8 mr-2"></i>
-											Sessions converted
+											No Vegetation
 										</div>
 										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="57">0</span>%</div>
+											<div class="text-grey f-s-11"> <span data-animation="number" data-value="57">0</span>%</div>
 											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="2.19">0.00</span>%</div>
-										</div>
-									</div>
-									<!-- end info-row -->
-								</div>
-								<!-- end card-body -->
-							</div>
-							<!-- end card -->
-						</div>
-						<!-- end col-6 -->
-						<!-- begin col-6 -->
-						<div class="col-sm-6">
-							<!-- begin card -->
-							<div class="card border-0 text-truncate mb-3 bg-dark text-white">
-								<!-- begin card-body -->
-								<div class="card-body">
-									<!-- begin title -->
-									<div class="mb-3 text-grey">
-										<b class="mb-3">STORE SESSIONS</b> 
-										<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Store Sessions" data-placement="top" data-content="Number of sessions on your online store. A session is a period of continuous activity from a visitor." data-original-title="" title=""></i></span>
-									</div>
-									<!-- end title -->
-									<!-- begin store-session -->
-									<div class="d-flex align-items-center mb-1">
-										<h2 class="text-white mb-0"><span data-animation="number" data-value="70719">0</span></h2>
-										<div class="ml-auto">
-											<div id="store-session-sparkline"></div>
-										</div>
-									</div>
-									<!-- end store-session -->
-									<!-- begin percentage -->
-									<div class="mb-4 text-grey">
-										<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="9.5">0.00</span>% compare to last week
-									</div>
-									<!-- end percentage -->
-									<!-- begin info-row -->
-									<div class="d-flex mb-2">
-										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-teal f-s-8 mr-2"></i>
-											Mobile
-										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="25.7">0.00</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="53210">0</span></div>
-										</div>
-									</div>
-									<!-- end info-row -->
-									<!-- begin info-row -->
-									<div class="d-flex mb-2">
-										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-blue f-s-8 mr-2"></i>
-											Desktop
-										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="16.0">0.00</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="11959">0</span></div>
-										</div>
-									</div>
-									<!-- end info-row -->
-									<!-- begin info-row -->
-									<div class="d-flex">
-										<div class="d-flex align-items-center">
-											<i class="fa fa-circle text-aqua f-s-8 mr-2"></i>
-											Tablet
-										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="7.9">0.00</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="5545">0</span></div>
 										</div>
 									</div>
 									<!-- end info-row -->

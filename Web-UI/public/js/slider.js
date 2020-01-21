@@ -50,7 +50,7 @@ for(let i=1;i<=24;i++)
 }
 
 const renderGraph = (r,c) => {
-    fetch('http://0.0.0.0:5000?r='+r+'&c='+c)
+    fetch('http://192.168.43.123:5000?r='+r+'&c='+c)
         .then(async response => {
             let res = await response.json();
             console.log(res);
@@ -95,7 +95,7 @@ const range$ = fromEvent(range, 'input').
 range$.subscribe(update);
 
 let ctx = chart.getContext('2d');
-fetch('http://0.0.0.0:5000?r='+0+'&c='+0)
+fetch('http://192.168.43.123:5000?r='+0+'&c='+0)
     .then(async response => {
         let res = await response.json();
         console.log(res);
