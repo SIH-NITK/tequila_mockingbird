@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback,Slider, Image } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
@@ -11,7 +11,8 @@ import { Dropdown } from 'react-native-material-dropdown';
 import customerDetailService from '../../_services/customer-details';
 import Modal from "react-native-modal";
 import customerLaundryDetails from '../../_services/customer-laundry-details';
-
+// import Images from '../../assets/homeImages/overlayed';
+// import Chart from 'react-native-chartjs';
 class adminHome extends React.Component {
     _isMounted = false;
     constructor(props) {
@@ -36,10 +37,18 @@ class adminHome extends React.Component {
             data: [],
             modalVisible: false,
             customerKey: "",
-            result: {}
+            result: {},
+            value:50,
+            timestamps:[],
+            urlLocation:'../../assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(0) + '_clipped.jpg'
+
 
         }
         this._isMounted = false;
+        const singleValues = [33];
+        // this.fromIToImage();
+        console.log(this.state.timestamps);
+        // console.log(Images);
     }
 
 
@@ -49,7 +58,51 @@ class adminHome extends React.Component {
             this.setState({ modalVisible: visible });
         }
     }
+    fromIToImage(value){
 
+        let timestamps = [];
+        for(let i=1;i<=24;i++)
+        {
+
+            if(i<=12)
+            {
+                let year = '2017';
+                if(i%13<10)
+                {
+                    year = year+'0'+(i%13);
+                }
+                else{
+                    year = year+(i%13);
+                }
+                let year1 = year + '_15_' + '1';
+                let year2 = year + '_15_' + '2';
+                timestamps.push(year1);
+                timestamps.push(year2);
+            }
+            else
+            {
+                let year = '2018';
+                if(i%12==0)
+                {
+                    year = year+'12';
+                }
+                else if(i%12<10)
+                {
+                    year = year+'0'+(i%12);
+                }
+                else{
+                    year = year+(i%12);
+                }
+                let year1 = year + '_15_' + '1';
+                let year2 = year + '_15_' + '2';
+                timestamps.push(year1);
+                timestamps.push(year2);
+            }
+            timestamps.push()
+        }
+        return timestamps[value];
+        this.setState({timestamps:timestamps});
+    }
     componentDidMount() {
         this._isMounted = true;
     }
@@ -133,8 +186,24 @@ class adminHome extends React.Component {
             this.setState({ roomno });
         }
     }
+    change(value) {
+        // this.setState(() => {
+        //   return {
+        //     value: parseFloat(value),
+        //   };
+        // });
+        console.log(value);
+        console.log(this.state.timestamps);
+        urlLocation =  '../../assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(value) + '_clipped.jpg';
+        console.log(urlLocation);
+        this.setState({urlLocation:urlLocation});
 
+    }
+    
     render() {
+        const {value} = this.state;
+        var urlLocation = this.state.urlLocation;
+        console.log(this.state.urlLocation);
 
         tab = createMaterialTopTabNavigator(
             {
@@ -172,6 +241,20 @@ class adminHome extends React.Component {
             <View style={styles.container}>
                 
                 <Text> Hi I am Admin </Text>
+                <Slider
+                step={1}
+                maximumValue={48}
+                minimumValue={1}
+                onValueChange={this.change.bind(this)}
+                value={value}       
+                />
+
+                <Image  
+                    
+                    source ={require('../../assets/homeImages/overlayed/awifs_ndvi_'+`${this.fromIToImage(this.state.value)}`+'_clipped.jpg')}
+                    style={{width: 400, height: 400}} 
+                />
+            
             </View>
 
         );
