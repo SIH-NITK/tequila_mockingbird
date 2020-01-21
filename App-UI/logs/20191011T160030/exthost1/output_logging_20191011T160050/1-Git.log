@@ -1,0 +1,455 @@
+Looking for git in: git
+Using git 2.20.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+> git config --get commit.template
+Open repository: /home/manan/react/laundryNITK
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show :App.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git ls-files --stage -- ./
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :history-card.js
+> git ls-files --stage -- ./
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :student-profile.js
+> git ls-files --stage -- ./
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :styles/global-styles
+> git ls-files --stage -- styles/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :styles/global-styles.js
+> git ls-files --stage -- styles/
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
