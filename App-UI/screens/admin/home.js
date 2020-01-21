@@ -170,34 +170,8 @@ class adminHome extends React.Component {
         TabApp = createAppContainer(tab);
         return (
             <View style={styles.container}>
-                <View>
-                    <Dropdown onChangeText={(blockno) => {
-                        this.setBlockNo(blockno);
-                        this.getCustomerProfile();
-                    }
-                    }
-                        label='Block'
-                        data={this.state.blockNoData}
-                    />
-                    <Dropdown onChangeText={(roomno) => {
-                        this.setRoomNo(roomno);
-                        this.getCustomerProfile();
-                    }
-                    }
-                        label='Room Number'
-                        data={this.state.roomNoData}
-                    />
-                </View>
-                <Modal animationType={"slide"} transparent={true}
-                    isVisible={this.state.modalVisible}
-                    onNavigate={this.customerLogin}
-                    onRequestClose={() => { this.setState({ modalVisible: false }); }}
-                >
-                    <View>{this._renderList()}</View>
-
-
-                </Modal>
-                <TabApp style={{marginTop:-29}} screenProps={{ customerKey: this.state.customerKey, result: this.state.result }} />
+                
+                <Text> Hi I am Admin </Text>
             </View>
 
         );
