@@ -49,14 +49,35 @@ for(let i=1;i<=24;i++)
     timestamps.push()
 }
 
-const renderGraph = (x,y) => {
-
+const renderGraph = (r,c) => {
+    fetch('http://0.0.0.0:5000?r='+r+'&c='+c)
+        .then(async response => {
+            let res = await response.json();
+            console.log(res);
+            let duration_arr = [];
+            for(let i=0;i<48;i++)
+                duration_arr.push(0);
+            res.crop_interval.forEach(interval => {
+                let left = interval.img_idx[0];
+                let right = interval.img_idx[1];
+                for(let j=left;j<=right;j++)
+                {
+                    duration_arr[j] = res.graph_data[j];
+                }
+            });
+            myChart.data.datasets[1].data = res.graph_data;
+            myChart.data.datasets[0].data = duration_arr;
+            myChart.update();
+        })
+        .catch(err => {
+            console.log(err);
+        })
 };
 
 const getPixel = (event) => {
-    let x = event.offsetX;
-    let y = event.offsetY;
-    renderGraph(x,y);
+    let y = parseInt(2118*parseInt(event.offsetY)/300);
+    let x = parseInt(2135*parseInt(event.offsetX)/500);
+    renderGraph(y,x);
 };
 
 const f = new Flipping();
@@ -74,24 +95,47 @@ const range$ = fromEvent(range, 'input').
 range$.subscribe(update);
 
 let ctx = chart.getContext('2d');
-myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: timestamps,
-        datasets: [{
-            label: 'NDVI data',
-            data: [],
-            backgroundColor: "rgba(153,255,51,0.6)"
-        }]
-    },
-    options:{
-        scales:{
-            yAxes:[{
-                ticks: {
-                    min:0,
-                    max:255
+fetch('http://0.0.0.0:5000?r='+0+'&c='+0)
+    .then(async response => {
+        let res = await response.json();
+        console.log(res);
+        let duration_arr = [];
+        for(let i=0;i<48;i++)
+            duration_arr.push(0);
+        res.crop_interval.forEach(interval => {
+           let left = interval.img_idx[0];
+           let right = interval.img_idx[1];
+           for(let j=left;j<=right;j++)
+           {
+               duration_arr[j] = res.graph_data[j];
+           }
+        });
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timestamps,
+                datasets: [{
+                    label: 'Harvest duration',
+                    data: duration_arr,
+                    backgroundColor: "rgba(200,0,0,0.6)"
+                },{
+                    label: 'NDVI data',
+                    data: res.graph_data,
+                    backgroundColor: "rgba(0,200,0,0.6)"
+                }]
+            },
+            options:{
+                scales:{
+                    yAxes:[{
+                        ticks: {
+                            min:0,
+                            max:255
+                        }
+                    }]
                 }
-            }]
-        }
-    }
-});
+            }
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
