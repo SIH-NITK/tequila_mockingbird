@@ -87,8 +87,9 @@ class customerLogin extends React.Component {
             console.log(result)
             if (result.type === 'success') {
                 // this.getRoomBlock(true);
+                console.log("success")
                 this.state.result = result;
-                return result.accessToken;
+                return result;
             } else {
                 console.log("not success");
                 return { cancelled: true };
@@ -143,29 +144,36 @@ class customerLogin extends React.Component {
 
     async customerLogin() {
         var result = {};
-        var authApiResult = this.googleAuth();
+        var authApiResult = await this.googleAuth();
         console.log(authApiResult);
+        authApiResult=authApiResult["user"];
+        console.log("cool")
+        console.log(authApiResult);
+        console.log("here1")
         // console.log(authApiResult);
         // token = "asdf";
-        token = await this.pushNotification();
-        console.log(token);
-        // var customerData = {
-        //     key: authApiResult.id,
-        //     roomNo: this.state.roomno,
-        //     blockNo: this.state.blockno,
-        //     name: authApiResult.name,
-        //     key: authApiResult.id,
-        //     email: authApiResult.email,
-        //     phoneNo: this.state.phoneno,
-        //     profilePic: authApiResult.photoUrl,
-        //     pushToken: token
-        // }
+        // token = await this.pushNotification();
+        // console.log(token);
+        var customerData = {
+            key: authApiResult.id,
+            name: authApiResult.name,
+            key: authApiResult.id,
+            email: authApiResult.email,
+            profilePic: authApiResult.photoUrl,
+        }
 
 
         // customerDetailService.postCustomerDetails(customerData).then((res) => {
         // }).catch((e) => {
         //     console.log(e);
         // });
+        curr={
+
+        }
+        hist={
+
+        }
+        result = { "customerData": customerData, "current": curr, "history": hist };
         this.setState({ modalVisible: false }, () => this.props.navigation.navigate('customerHome', result));
         // console.log(customerData);
         // this.getCustomerLaundry(customerData);

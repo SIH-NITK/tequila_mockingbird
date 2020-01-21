@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback,Slider, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback, Slider, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
@@ -11,8 +11,8 @@ import { Dropdown } from 'react-native-material-dropdown';
 import customerDetailService from '../../_services/customer-details';
 import Modal from "react-native-modal";
 import customerLaundryDetails from '../../_services/customer-laundry-details';
-// import Images from '../../assets/homeImages/overlayed';
-// import Chart from 'react-native-chartjs';
+import { StackedAreaChart } from 'react-native-svg-charts';
+import * as shape from 'd3-shape';
 class adminHome extends React.Component {
     _isMounted = false;
     constructor(props) {
@@ -38,9 +38,9 @@ class adminHome extends React.Component {
             modalVisible: false,
             customerKey: "",
             result: {},
-            value:0,
-            timestamps:[],
-            urlLocation :" ",
+            value: 0,
+            timestamps: [],
+            urlLocation: " ",
             // urlLocation:"/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_201701_15_1_clipped.jpg",
             images: [
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201701_15_1_clipped.jpg'),
@@ -67,7 +67,7 @@ class adminHome extends React.Component {
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201711_15_2_clipped.jpg'),
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_1_clipped.jpg'),
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_2_clipped.jpg')
-              ]
+            ]
 
         }
         this._isMounted = false;
@@ -84,40 +84,34 @@ class adminHome extends React.Component {
             this.setState({ modalVisible: visible });
         }
     }
-    fromIToImage(value){
+    fromIToImage(value) {
 
         let timestamps = [];
-        for(let i=1;i<=24;i++)
-        {
+        for (let i = 1; i <= 24; i++) {
 
-            if(i<=12)
-            {
+            if (i <= 12) {
                 let year = '2017';
-                if(i%13<10)
-                {
-                    year = year+'0'+(i%13);
+                if (i % 13 < 10) {
+                    year = year + '0' + (i % 13);
                 }
-                else{
-                    year = year+(i%13);
+                else {
+                    year = year + (i % 13);
                 }
                 let year1 = year + '_15_' + '1';
                 let year2 = year + '_15_' + '2';
                 timestamps.push(year1);
                 timestamps.push(year2);
             }
-            else
-            {
+            else {
                 let year = '2018';
-                if(i%12==0)
-                {
-                    year = year+'12';
+                if (i % 12 == 0) {
+                    year = year + '12';
                 }
-                else if(i%12<10)
-                {
-                    year = year+'0'+(i%12);
+                else if (i % 12 < 10) {
+                    year = year + '0' + (i % 12);
                 }
-                else{
-                    year = year+(i%12);
+                else {
+                    year = year + (i % 12);
                 }
                 let year1 = year + '_15_' + '1';
                 let year2 = year + '_15_' + '2';
@@ -127,7 +121,7 @@ class adminHome extends React.Component {
             timestamps.push()
         }
         return timestamps[value];
-        this.setState({timestamps:timestamps});
+        this.setState({ timestamps: timestamps });
     }
     componentDidMount() {
         this._isMounted = true;
@@ -202,16 +196,7 @@ class adminHome extends React.Component {
 
         );
     }
-    setBlockNo(blockno) {
-        if (this._isMounted) {
-            this.setState({ blockno });
-        }
-    }
-    setRoomNo(roomno) {
-        if (this._isMounted) {
-            this.setState({ roomno });
-        }
-    }
+
     change(value) {
         // this.setState(() => {
         //   return {
@@ -219,23 +204,31 @@ class adminHome extends React.Component {
         //   };
         // });
         console.log(value);
-        this.setState({value:value-1})
+        this.setState({ value: value - 1 })
         console.log(this.state.timestamps);
         // urlLocation =  "/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_"+ this.fromIToImage(value) + "_clipped.jpg";
         // console.log(urlLocation);
         // this.setState({urlLocation:urlLocation});
 
     }
-    handlePress(evt){
+    handlePress(evt) {
         console.log(`x coord = ${evt.nativeEvent.locationX}`);
+        x_coor = evt.nativeEvent.locationX;
+        y_coor = evt.nativeEvent.locationX;
+
+        y = parseInt(2118 * parseInt(y_coor) / 300);
+        x = parseInt(2135 * parseInt(x_coor) / 500);
+        console.log(x + " ", y);
+
+
     }
-    
+
     render() {
         // const {value} = this.state;
         const w = Dimensions.get('window');
         var urlLocation = this.state.urlLocation;
         console.log(this.state.urlLocation);
-        console.log(typeof(this.state.urlLocation));
+        console.log(typeof (this.state.urlLocation));
         var images = this.state.images;
         console.log(images);
         tab = createMaterialTopTabNavigator(
@@ -249,7 +242,7 @@ class adminHome extends React.Component {
                     activeTintColor: 'white', // not working
                     inactiveTintColor: 'grey', // not working
                     style: {
-                        marginTop:-10,
+                        marginTop: -10,
                         paddingVertical: 0,
                         backgroundColor: 'black',
                         color: "white",
@@ -277,30 +270,65 @@ class adminHome extends React.Component {
         var v = this.fromIToImage(value);
         console.log(url_image);
         // var url_image = require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ v +'_clipped.jpg')
-        console.log("url"+url_image);
+        console.log("url" + url_image);
+        const data = [
+            {
+                month: new Date(2015, 0, 1),
+                apples: 3840,
+            },
+            {
+                month: new Date(2015, 1, 1),
+                apples: 1600,
+            },
+            {
+                month: new Date(2015, 2, 1),
+                apples: 640,
+            },
+            {
+                month: new Date(2015, 3, 1),
+                apples: 3320,
+            },
+        ]
+ 
+        const colors = [ '#8800cc' ]
+        const keys   = [ 'apples' ]
+        const svgs = [
+                    { onPress: () => console.log('apples') },
+                    { onPress: () => console.log('bananas') },
+                    { onPress: () => console.log('cherries') },
+                    { onPress: () => console.log('dates') },
+                ]
         return (
             <View style={styles.container}>
-                
-                <Text> Hi I am Admin </Text>
+
                 <Slider
-                step={1}
-                maximumValue={48}
-                minimumValue={1}
-                onValueChange={this.change.bind(this)}
-                value={value}       
+                    step={1}
+                    maximumValue={48}
+                    minimumValue={1}
+                    onValueChange={this.change.bind(this)}
+                    value={value}
                 />
 
-                <TouchableOpacity onPress={(evt) => this.handlePress(evt) } >
-                `               <Image  
-                                    
-                                    // source ={require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(value) +'_clipped.jpg')}
-                                    source={images[this.state.value]}
-                                    style={{width: 400, height: 400}} 
-                                />
+                <TouchableOpacity onPress={(evt) => this.handlePress(evt)} >
+
+                    <Image
+
+                        // source ={require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ this.fromIToImage(value) +'_clipped.jpg')}
+                        source={images[this.state.value]}
+                        style={{ width: 400, height: 400 }}
+                    />
                 </TouchableOpacity>
 
-        
-            
+                <StackedAreaChart
+                style={ { height: 200, paddingVertical: 16 } }
+                data={ data }
+                keys={ keys }
+                colors={ colors }
+                curve={ shape.curveNatural }
+                showGrid={ false }
+                svgs={ svgs }
+            />
+
             </View>
 
         );
@@ -310,6 +338,7 @@ export default adminHome;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop:20
     },
     modalContainer: {
         flex: 1,
