@@ -8,7 +8,8 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-	
+
+	<link rel="stylesheet" href="../css/slider.css">
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="https://seantheme.com/color-admin/admin/assets/css/default/app.min.css" rel="stylesheet" />
@@ -372,51 +373,60 @@
 				<!-- begin col-4 -->
 				<div class="col-xl-4 col-lg-6">
 					<!-- begin card -->
-					<div class="card border-0 mb-3 bg-dark text-white">
-						<div class="card-body">
-							<div class="mb-2 text-grey">
-								<b>SESSION BY LOCATION</b>
-								<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total sales" data-placement="top" data-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></span>
-							</div>
-							<div id="visitors-map" class="mb-2" style="height: 200px"></div>
-							<div>
-								<div class="d-flex align-items-center text-white mb-2">
-									<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/us.jpg)"></div>
-									<div class="d-flex w-100">
-										<div>United States</div>
-										<div class="ml-auto text-grey"><span data-animation="number" data-value="39.85">0.00</span>%</div>
-									</div>
-								</div>
-								<div class="d-flex align-items-center text-white mb-2">
-									<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/cn.jpg)"></div>
-									<div class="d-flex w-100">
-										<div>China</div>
-										<div class="ml-auto text-grey"><span data-animation="number" data-value="14.23">0.00</span>%</div>
-									</div>
-								</div>
-								<div class="d-flex align-items-center text-white mb-2">
-									<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/de.jpg)"></div>
-									<div class="d-flex w-100">
-										<div>Germany</div>
-										<div class="ml-auto text-grey"><span data-animation="number" data-value="12.83">0.00</span>%</div>
-									</div>
-								</div>
-								<div class="d-flex align-items-center text-white mb-2">
-									<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/fr.jpg)"></div>
-									<div class="d-flex w-100">
-										<div>France</div>
-										<div class="ml-auto text-grey"><span data-animation="number" data-value="11.14">0.00</span>%</div>
-									</div>
-								</div>
-								<div class="d-flex align-items-center text-white mb-0">
-									<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/jp.jpg)"></div>
-									<div class="d-flex w-100">
-										<div>Japan</div>
-										<div class="ml-auto text-grey"><span data-animation="number" data-value="10.75">0.00</span>%</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<!--<div class="card border-0 mb-3 bg-dark text-white">-->
+						<!--<div class="card-body">-->
+							<!--<div class="mb-2 text-grey">-->
+								<!--<b>SESSION BY LOCATION</b>-->
+								<!--<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Total sales" data-placement="top" data-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></span>-->
+							<!--</div>-->
+							<!--<div id="visitors-map" class="mb-2" style="height: 200px"></div>-->
+							<!--<div>-->
+								<!--<div class="d-flex align-items-center text-white mb-2">-->
+									<!--<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/us.jpg)"></div>-->
+									<!--<div class="d-flex w-100">-->
+										<!--<div>United States</div>-->
+										<!--<div class="ml-auto text-grey"><span data-animation="number" data-value="39.85">0.00</span>%</div>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="d-flex align-items-center text-white mb-2">-->
+									<!--<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/cn.jpg)"></div>-->
+									<!--<div class="d-flex w-100">-->
+										<!--<div>China</div>-->
+										<!--<div class="ml-auto text-grey"><span data-animation="number" data-value="14.23">0.00</span>%</div>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="d-flex align-items-center text-white mb-2">-->
+									<!--<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/de.jpg)"></div>-->
+									<!--<div class="d-flex w-100">-->
+										<!--<div>Germany</div>-->
+										<!--<div class="ml-auto text-grey"><span data-animation="number" data-value="12.83">0.00</span>%</div>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="d-flex align-items-center text-white mb-2">-->
+									<!--<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/fr.jpg)"></div>-->
+									<!--<div class="d-flex w-100">-->
+										<!--<div>France</div>-->
+										<!--<div class="ml-auto text-grey"><span data-animation="number" data-value="11.14">0.00</span>%</div>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="d-flex align-items-center text-white mb-0">-->
+									<!--<div class="widget-img widget-img-xs rounded bg-inverse mr-2 width-40" style="background-image: url(https://seantheme.com/color-admin/admin/assets/img/flag/jp.jpg)"></div>-->
+									<!--<div class="d-flex w-100">-->
+										<!--<div>Japan</div>-->
+										<!--<div class="ml-auto text-grey"><span data-animation="number" data-value="10.75">0.00</span>%</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<div class="house mb-3" id="house" data-rooms="1">
+						<img src="https://source.unsplash.com/400x400?nature" id="locationImg" height="300" width="500">
+						<!--<input type="range" min="1" max="48" step="1" value="1" id="range">-->
+                        <div class="range-slider">
+                            <label class="house-label" for="range" id="label"></label>
+                            <input class="range-slider__range" type="range" value="1" min="1" max="48" id="range" style="position: absolute; top:350px">
+                            <span class="range-slider__value" style="width:100px"></span>
+                        </div>
 					</div>
 					<!-- end card -->
 				</div>
@@ -849,7 +859,10 @@
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.3/rxjs.umd.js"></script>
+	<script src="https://unpkg.com/flipping@0.5.3/dist/flipping.animationFrame.js"></script>
+	<script src="../js/slider.js" type="application/javascript"></script>
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="https://seantheme.com/color-admin/admin/assets/js/app.min.js"></script>
 	<script src="https://seantheme.com/color-admin/admin/assets/js/theme/default.min.js"></script>
@@ -865,7 +878,7 @@
 	<script src="https://seantheme.com/color-admin/admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script src="https://seantheme.com/color-admin/admin/assets/js/demo/dashboard-v3.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-<script>
+	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
