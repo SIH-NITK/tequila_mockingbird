@@ -1,0 +1,11 @@
+HTTrack3.49-2 launched on Tue, 21 Jan 2020 16:27:43 at https://seantheme.com/color-admin/admin/html/index_v3.html
+(httrack https://seantheme.com/color-admin/admin/html/index_v3.html -O ./ )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 34 seconds : 91 links scanned, 90 files written (4176469 bytes overall) [642501 bytes received at 6835 bytes/sec], 4176469 bytes transferred using HTTP compression in 90 files, ratio 14%, 46.0 requests per connection
+(No errors, 0 warnings, 0 messages)
