@@ -5,6 +5,8 @@ const range = document.querySelector('#range');
 const label = document.querySelector('#label');
 const img = document.querySelector('#locationImg');
 const rangeVal = document.querySelector('.range-slider__value');
+let chart = document.querySelector('#myChart');
+let myChart = null;
 
 let timestamps = [];
 for(let i=1;i<=24;i++)
@@ -47,6 +49,16 @@ for(let i=1;i<=24;i++)
     timestamps.push()
 }
 
+const renderGraph = (x,y) => {
+
+};
+
+const getPixel = (event) => {
+    let x = event.offsetX;
+    let y = event.offsetY;
+    renderGraph(x,y);
+};
+
 const f = new Flipping();
 const update = f.wrap(index => {
 
@@ -60,3 +72,26 @@ const range$ = fromEvent(range, 'input').
     startWith(1));
 
 range$.subscribe(update);
+
+let ctx = chart.getContext('2d');
+myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: timestamps,
+        datasets: [{
+            label: 'NDVI data',
+            data: [],
+            backgroundColor: "rgba(153,255,51,0.6)"
+        }]
+    },
+    options:{
+        scales:{
+            yAxes:[{
+                ticks: {
+                    min:0,
+                    max:255
+                }
+            }]
+        }
+    }
+});
