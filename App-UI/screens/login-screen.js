@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, StyleSheet, ActivityIndicator, } from 'react-native';
+import { Keyboard, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, StyleSheet, ActivityIndicator,TouchableHighlight } from 'react-native';
 import { Button } from 'react-native-elements';
 import * as Google from 'expo-google-app-auth';
 import Modal from "react-native-modal";
@@ -34,9 +34,9 @@ class customerLogin extends React.Component {
                 value: '3rd Block',
             }],
             spinner: true,
-            toast:true
+            toast: true
         }
-       
+
     }
 
 
@@ -70,25 +70,26 @@ class customerLogin extends React.Component {
     async googleAuth() {
         try {
 
-            const result = {
-                type: 'success',
-                user: {
-                    name: "manan poddar",
-                    id: "107682254345676540759",
-                    email: "mananpoddarm@gmail.com",
-                    photoUrl: "https://lh3.googleusercontent.com/a-/AAuE7mDF2J8FGmLH7YQ1OXZRQNhGkSCAfJHKuufY4bKj"
-                }
-            }
-
-            // const result = await Google.logInAsync({
-            //     androidClientId: "824313572468-sufov0eccf83s3fdsdr2q97g794ill0s.apps.googleusercontent.com",
-            //     scopes: ['profile', 'email'],
-            // });
-
+            // const result = {
+            //     type: 'success',
+            //     user: {
+            //         name: "manan poddar",
+            //         id: "107682254345676540759",
+            //         email: "mananpoddarm@gmail.com",
+            //         photoUrl: "https://lh3.googleusercontent.com/a-/AAuE7mDF2J8FGmLH7YQ1OXZRQNhGkSCAfJHKuufY4bKj"
+            //     }
+            // }
+            console.log("hello");
+            const result = await Google.logInAsync({
+                androidClientId: "377481408812-vfanga4h96pknfd50ct8bbn9rd7vkdn5.apps.googleusercontent.com",
+                scopes: ['profile', 'email'],
+            });
+            console.log(result)
             if (result.type === 'success') {
-                this.getRoomBlock(true);
+                // this.getRoomBlock(true);
+                console.log("success")
                 this.state.result = result;
-                return result.accessToken;
+                return result;
             } else {
                 console.log("not success");
                 return { cancelled: true };
@@ -107,26 +108,35 @@ class customerLogin extends React.Component {
 
     getCustomerLaundry(customerData) {
         // console.log(customerData);
-        customerLaundryDetails.getCustomerLaundry(customerData.key).then(res => {
-            res.json().then(data => {
-                var curr = [];
-                var hist = [];
-                data = JSON.parse(data)
+        // customerLaundryDetails.getCustomerLaundry(customerData.key).then(res => {
+        //     res.json().then(data => {
+        //         var curr = [];
+        //         var hist = [];
+        //         data = JSON.parse(data)
 
-                data.forEach(function (obj) {
-                    //console.log(obj.id);
-                    if (obj.datePickup === "None") {
-                        curr.push(obj);
-                    }
-                    else {
-                        hist.push(obj);
-                    }
-                });
-                result = { "customerData": customerData, "current": curr, "history": hist };
-                this.setState({ modalVisible: false }, () => this.props.navigation.navigate('customerHome', result));
+        //         data.forEach(function (obj) {
+        //             //console.log(obj.id);
+        //             if (obj.datePickup === "None") {
+        //                 curr.push(obj);
+        //             }
+        //             else {
+        //                 hist.push(obj);
+        //             }
+        //         });
+        //         result = { "customerData": customerData, "current": curr, "history": hist };
+        //         this.setState({ modalVisible: false }, () => this.props.navigation.navigate('customerHome', result));
 
-            })
-        });
+        //     })
+        // });
+        curr = {
+
+        }
+        hist = {
+
+        }
+        result = { "customerData": customerData, "current": curr, "history": hist };
+        this.setState({ modalVisible: false }, () => this.props.navigation.navigate('customerHome', result));
+
         // setTimeout(() => {
         //     console.log("here")
         // }, 3000);
@@ -134,27 +144,39 @@ class customerLogin extends React.Component {
 
     async customerLogin() {
         var result = {};
-        var authApiResult = this.state.result.user;
+        var authApiResult = await this.googleAuth();
         console.log(authApiResult);
-        token = await this.pushNotification();
+        authApiResult=authApiResult["user"];
+        console.log("cool")
+        console.log(authApiResult);
+        console.log("here1")
+        // console.log(authApiResult);
+        // token = "asdf";
+        // token = await this.pushNotification();
+        // console.log(token);
         var customerData = {
             key: authApiResult.id,
-            roomNo: this.state.roomno,
-            blockNo: this.state.blockno,
             name: authApiResult.name,
             key: authApiResult.id,
             email: authApiResult.email,
-            phoneNo: this.state.phoneno,
             profilePic: authApiResult.photoUrl,
-            pushToken: token
         }
 
 
-        customerDetailService.postCustomerDetails(customerData).then((res) => {
-        }).catch((e) => {
-            console.log(e);
-        });
-        this.getCustomerLaundry(customerData);
+        // customerDetailService.postCustomerDetails(customerData).then((res) => {
+        // }).catch((e) => {
+        //     console.log(e);
+        // });
+        curr={
+
+        }
+        hist={
+
+        }
+        result = { "customerData": customerData, "current": curr, "history": hist };
+        this.setState({ modalVisible: false }, () => this.props.navigation.navigate('customerHome', result));
+        // console.log(customerData);
+        // this.getCustomerLaundry(customerData);
     }
 
 
@@ -167,7 +189,7 @@ class customerLogin extends React.Component {
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <View style={styles.loginScreenContainer}>
                         <View style={styles.loginFormView}>
-                            <Text style={styles.logoText}>Central Laundry NITK</Text>
+                            <Text style={styles.logoText}>SIH 2k20 - NITK</Text>
                             {/* <Spinner
                                 visible={this.state.spinner}
                                 textContent={''}
@@ -176,13 +198,13 @@ class customerLogin extends React.Component {
                                 size = "large"
                             /> */}
 
-                            <Modal animationType={"slide"} transparent={true} style={styles.modalContainer}
+                            {/* <Modal animationType={"slide"} transparent={true} style={styles.modalContainer}
                                 isVisible={this.state.modalVisible}
                                 onNavigate={this.customerLogin}
                                 onRequestClose={() => { this.setState({ modalVisible: false }); console.log("request") }}
-                            >
+                            > */}
 
-                                <View style={styles.modalContainer}>
+                            {/* <View style={styles.modalContainer}>
                                     <View>
 
                                         <Dropdown onChangeText={(blockno) => {
@@ -218,31 +240,46 @@ class customerLogin extends React.Component {
                                             title="Submit"
                                         />
 
-                                    </View>
+                                    </View> */}
 
 
-                                </View>
+                            {/* </View> */}
 
-                            </Modal>
+                            {/* </Modal> */}
 
 
+                            <TouchableHighlight style={styles.endBtn} onPress={() => {
+                                this.customerLogin();
+                            }}>
+                                <Text style={styles.text}>Login with Google</Text>
+                            </TouchableHighlight>
 
-                            <Button
+                            <TouchableHighlight style={styles.endBtn} onPress={() => {
+                                this.adminLogin();
+                            }}>
+                                <Text style={styles.text}>Admin Login</Text>
+                            </TouchableHighlight>
+
+                            {/* <Button
                                 buttonStyle={styles.googleLoginButton}
                                 onPress={() => {
                                     console.log("google");
-                                    this.googleAuth();
+                                    this.customerLogin();
                                 }}
                                 title="Login with google"
                             />
                             <Button
-                                buttonStyle={styles.googleLoginButton}
+
                                 onPress={() => {
                                     console.log("admin");
                                     this.adminLogin()
                                 }}
                                 title="admin login"
-                            />
+                                // style={{color:'black'}}
+                                // theme='dark'
+                                color="black"
+                                buttonStyle={styles.googleLoginButton}
+                            /> */}
                         </View>
                     </View>
                 </TouchableWithoutFeedback>
@@ -260,7 +297,8 @@ const styles = StyleSheet.create({
     },
     containerView: {
         flex: 1,
-        padding: 20
+        padding: 20,
+        backgroundColor: 'black'
     },
     loginScreenContainer: {
         flex: 1,
@@ -271,11 +309,13 @@ const styles = StyleSheet.create({
         marginTop: 150,
         marginBottom: 30,
         textAlign: 'center',
+        color: 'white'
     },
     googleLoginButton: {
         height: 45,
         marginTop: 10,
-        backgroundColor: 'black',
+        backgroundColor: 'white',
+        color: 'black'
     },
     modalContainer: {
         flex: 1,
@@ -294,6 +334,21 @@ const styles = StyleSheet.create({
     spinnerTextStyle: {
         color: '#FFF'
     },
+    endBtn: {
+        alignItems: "center",
+        marginTop: 10,
+        paddingTop: 15,
+        paddingBottom: 15,
+        marginLeft: 30,
+        marginRight: 30,
+        backgroundColor: 'black',
+        borderRadius: 20,
+        borderWidth: 1,
+        borderColor: '#fff'
+      },
+      text: {
+        color: '#DDD'
+      }
 })
 
 export default customerLogin;

@@ -1,0 +1,140 @@
+@media screen and (min-width: 1px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+h1, h2, p, a {
+  margin: 0;
+  line-height: 1.48;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+p, a, button, input {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #1f7a26;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 100vw;
+}
+
+@media screen and (min-width: 1px) {
+  .container {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .container {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+}
+.chart__container {
+  background-color: white;
+  box-shadow: 1px 5px 10px black;
+}
+
+.chart text {
+  fill: #1a1a1a;
+  font-family: sans-serif;
+  text-anchor: end;
+}
+
+.chart__title {
+  font-size: 3em;
+}
+
+.chart__bar {
+  fill: #66cc6f;
+}
+
+.chart__bar:hover {
+  fill: #1f7a26;
+}
+
+.chart__text text {
+  fill: transparent;
+  font-size: 1em;
+  text-align: left;
+}
+
+.chart__bar:hover + .chart__text text {
+  fill: #1a1a1a;
+}
+
+.chart__value {
+  font-weight: bold;
+}
+
+.x-axis text,
+.y-axis text {
+  font-size: 2em;
+}
+
+.x-axis text {
+  text-anchor: middle;
+}
+
+.y-axis .axis-label {
+  font-size: 1.5em;
+}
+
+.color-brand-1 {
+  color: #66cc6f;
+}
+
+.color-brand-2 {
+  color: #1f7a26;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-center-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+/*# sourceMappingURL=graph.css.map */

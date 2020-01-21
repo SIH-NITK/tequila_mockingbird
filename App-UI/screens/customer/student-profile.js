@@ -11,8 +11,8 @@ class studentProfileScreen extends React.Component {
   }
   render() {
     this.state.profileData = this.props.navigation.state.params.customerData;
-
-
+    console.log("here");
+    console.log(this.props.navigation.state.params);
     return (
       <View style={styles.container}>
         <View style={styles.header}></View>
@@ -24,7 +24,7 @@ class studentProfileScreen extends React.Component {
               {this.state.profileData.blockNo}
             </Text>
             <Text style={styles.description}>
-              {"Room Number  " + this.state.profileData.roomNo}
+              {"Room Number  " + this.state.profileData.roomNo}.user
             </Text>
             <Text style={styles.description}>
               {this.state.profileData.email}
