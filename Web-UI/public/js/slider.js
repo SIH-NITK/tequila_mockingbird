@@ -7,7 +7,7 @@ const img = document.querySelector('#locationImg');
 const rangeVal = document.querySelector('.range-slider__value');
 let chart = document.querySelector('#myChart');
 let myChart = null;
-const baseUrl = 'http://0.0.0.0:5000/';
+const baseUrl = 'http://sih-graph-api.herokuapp.com';
 
 let timestamps = [];
 let timestamps_display = [];
