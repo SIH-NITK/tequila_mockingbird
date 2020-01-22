@@ -19,9 +19,31 @@
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+	<style>
+		.image-background {
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: relative;
+		}
+
+		.image-background::after {
+			content: "";
+			background-image: url(https://www.theindiaforum.in/sites/default/files/field/image/2019/10/01/Ramkumar%20Radhakrishnan%2C%20Wikimedia-1569929663.jpeg);
+			opacity: 0.3;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: -1;
+		}
+
+	</style>
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 </head>
-<body>
+<body class="image-background">
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<span class="spinner"></span>

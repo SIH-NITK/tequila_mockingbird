@@ -345,12 +345,25 @@ fetch(baseUrl + '?r='+0+'&c='+0)
                 }]
             },
             options:{
+                legend: {
+                    labels: {
+                        fontColor: 'black',
+                    }
+                },
                 scales:{
                     yAxes:[{
                         ticks: {
                             min:0,
-                            max:255
-                        }
+                            max:255,
+                            fontColor: 'black'
+                        },
+                        gridLines: { color: 'black'}
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black'
+                        },
+                        gridLines: {color: 'black'}
                     }]
                 }
             }
