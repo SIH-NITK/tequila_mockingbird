@@ -7,6 +7,7 @@ const img = document.querySelector('#locationImg');
 const rangeVal = document.querySelector('.range-slider__value');
 let chart = document.querySelector('#myChart');
 let myChart = null;
+const baseUrl = 'http://0.0.0.0:5000/';
 
 let timestamps = [];
 for(let i=1;i<=24;i++)
@@ -50,10 +51,59 @@ for(let i=1;i<=24;i++)
 }
 
 const renderGraph = (r,c) => {
-    fetch('http://192.168.43.123:5000?r='+r+'&c='+c)
+    fetch(baseUrl + '?r='+r+'&c='+c)
         .then(async response => {
             let res = await response.json();
             console.log(res);
+
+            let harvest_freq_h = document.querySelector('#harvest_freq_h');
+            let date_of_sowing_h = document.querySelector('#date_of_sowing_h');
+            let date_of_harvest_h = document.querySelector('#date_of_harvest_h');
+            let duration_harvest = document.querySelector('#harvest_duration_h');
+            let crop_type_h = document.querySelector('#crop_type_h');
+            if(res.crop_interval.length === 0){
+
+                date_of_sowing_h.innerHTML = "---";
+                date_of_harvest_h.innerHTML = "---";
+                harvest_freq_h.innerHTML = "---";
+                crop_type_h.innerHTML = "No Vegetation";
+                duration_harvest.innerHTML = "---";
+            }
+            else{
+                crop_type_h.innerHTML = "No Vegetation";
+                if(res.crop_interval.length === 1)
+                {
+                    harvest_freq_h.innerHTML = "Single Crop";
+                }
+                if(res.crop_interval.length === 2)
+                {
+                    harvest_freq_h.innerHTML = "Single Crop";
+                }
+                let avg_duration = 0;
+                let largest_interval_idx = 0;
+                let diff = -1;
+                res.crop_interval.map((interval, idx) => {
+                   avg_duration += interval.interval_in_months;
+
+                   if(diff < (interval.img_idx[1] - interval.img_idx[0]))
+                   {
+                       diff = (interval.img_idx[1] - interval.img_idx[0]);
+                       largest_interval_idx = idx;
+                   }
+
+                });
+                avg_duration /= parseInt(res.crop_interval.length);
+                duration_harvest.innerHTML = (res.crop_interval[largest_interval_idx].interval_in_months) + " months";
+
+                let yr = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[0])].slice(0,4);
+                let month = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[0])].slice(4,6);
+                date_of_sowing_h.innerHTML = month + '/' + yr;
+
+                yr = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[1])].slice(0,4);
+                month = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[1])].slice(4,6);
+                date_of_harvest_h.innerHTML = month + '/' + yr;
+            }
+
             let duration_arr = [];
             for(let i=0;i<48;i++)
                 duration_arr.push(0);
@@ -75,8 +125,8 @@ const renderGraph = (r,c) => {
 };
 
 const getPixel = (event) => {
-    let y = parseInt(2118*parseInt(event.offsetY)/300);
-    let x = parseInt(2135*parseInt(event.offsetX)/500);
+    let y = parseInt(2118*parseInt(event.offsetY)/400);
+    let x = parseInt(2135*parseInt(event.offsetX)/550);
     renderGraph(y,x);
 };
 
@@ -95,10 +145,11 @@ const range$ = fromEvent(range, 'input').
 range$.subscribe(update);
 
 let ctx = chart.getContext('2d');
-fetch('http://192.168.43.123:5000?r='+0+'&c='+0)
+fetch(baseUrl + '?r='+0+'&c='+0)
     .then(async response => {
         let res = await response.json();
         console.log(res);
+
         let duration_arr = [];
         for(let i=0;i<48;i++)
             duration_arr.push(0);
@@ -110,6 +161,56 @@ fetch('http://192.168.43.123:5000?r='+0+'&c='+0)
                duration_arr[j] = res.graph_data[j];
            }
         });
+        let harvest_freq_h = document.querySelector('#harvest_freq_h');
+        let date_of_sowing_h = document.querySelector('#date_of_sowing_h');
+        let date_of_harvest_h = document.querySelector('#date_of_harvest_h');
+        let duration_harvest = document.querySelector('#harvest_duration_h');
+        let crop_type_h = document.querySelector('#crop_type_h');
+
+        if(res.crop_interval.length === 0){
+
+            harvest_freq_h.innerHTML = "---";
+            crop_type_h.innerHTML = "No Vegetation";
+            duration_harvest.innerHTML = "---";
+            date_of_sowing_h.innerHTML = "---";
+            date_of_harvest_h.innerHTML = "---";
+        }
+
+        else{
+            crop_type_h.innerHTML = "No Vegetation";
+            if(res.crop_interval.length === 1)
+            {
+                harvest_freq_h.innerHTML = "Single Crop";
+            }
+            if(res.crop_interval.length === 2)
+            {
+                harvest_freq_h.innerHTML = "Single Crop";
+            }
+
+            let largest_interval_idx = 0;
+            let diff = -1;
+            let avg_duration = 0;
+            res.crop_interval.map((interval,idx) => {
+                avg_duration += interval.interval_in_months;
+
+                if(diff < (interval.img_idx[1] - interval.img_idx[0]))
+                {
+                    diff = (interval.img_idx[1] - interval.img_idx[0]);
+                    largest_interval_idx = idx;
+                }
+            });
+            avg_duration /= parseInt(res.crop_interval.length);
+            duration_harvest.innerHTML = res.crop_interval[largest_interval_idx].interval_in_months + " months";
+
+            let yr = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[0])].slice(0,4);
+            let month = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[0])].slice(4,6);
+            date_of_sowing_h.innerHTML = month + '/' + yr;
+
+            yr = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[1])].slice(0,4);
+            month = timestamps[parseInt(res.crop_interval[largest_interval_idx].img_idx[1])].slice(4,6);
+            date_of_harvest_h.innerHTML = month + '/' + yr;
+        }
+
         myChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -138,4 +239,5 @@ fetch('http://192.168.43.123:5000?r='+0+'&c='+0)
     })
     .catch(err => {
         console.log(err);
+
     });

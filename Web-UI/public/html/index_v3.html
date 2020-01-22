@@ -87,7 +87,7 @@
 								<div class="col-xl-7 col-lg-8">
 									<!-- begin total-sales -->
 									<div class="d-flex mb-2">
-										<h3 class="mb-0 text-red">Duration of Harvest: </h3><h3 class="mb-0" style="margin-left: 4px"> 2 months</h3>
+										<h3 class="mb-0 text-red">Duration of Harvest: </h3><h3 class="mb-0" style="margin-left: 4px" id="harvest_duration_h"> 2 months</h3>
 									</div>
 									<!-- end total-sales -->
 									<!-- begin percentage -->
@@ -101,13 +101,13 @@
 										<!-- begin col-6 -->
 										<div class="col-6">
 											<div class="text-blue" style="font-size: 20px">Date of Sowing</div>
-											<h3 class="mb-0">20<sup>th</sup> Jan, 2020</h3>
+											<h3 class="mb-0" id="date_of_sowing_h"> --- </h3>
 										</div>
 										<!-- end col-6 -->
 										<!-- begin col-6 -->
 										<div class="col-6">
 											<div class="text-blue" style="font-size: 20px">Date of Harvest</div>
-											<h3 class="mb-0">20<sup>th</sup> Jan, 2020</h3>
+											<h3 class="mb-0" id="date_of_harvest_h"> --- </h3>
 										</div>
 										<!-- end col-6 -->
 									</div>
@@ -145,37 +145,26 @@
 									<!-- begin percentage -->
 									<div class="mb-4 text-grey">
 									</div>
-									<!-- end percentage -->
-									<!-- begin info-row -->
-									<div class="d-flex mb-1">
-										<div class="d-flex align-items-center">
-											Rabi Crop
-										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"> <span data-animation="number" data-value="262">0</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="3.79">0.00</span>%</div>
-										</div>
-									</div>
-									<!-- end info-row -->
-									<!-- begin info-row -->
-									<div class="d-flex mb-2">
-										<div class="d-flex align-items-center">
-											Kharif Crop
-										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"> <span data-animation="number" data-value="11">0</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="3.85">0.00</span>%</div>
-										</div>
-									</div>
-									<!-- end info-row -->
 									<!-- begin info-row -->
 									<div class="d-flex">
 										<div class="d-flex align-items-center">
-											No Vegetation
+											<h4 id="crop_type_h">No Vegetation</h4>
 										</div>
-										<div class="d-flex align-items-center ml-auto">
-											<div class="text-grey f-s-11"> <span data-animation="number" data-value="57">0</span>%</div>
-											<div class="width-50 text-right pl-2 f-w-600"><span data-animation="number" data-value="2.19">0.00</span>%</div>
+									</div><br>
+									<!-- end info-row -->
+
+									<!-- begin title -->
+									<div class="d-flex mb-2">
+										<h3 class="mb-0 text-red">Harvest Freq</h3><h3 class="mb-0" style="margin-left: 4px"></h3>
+									</div>
+									<!-- end title -->
+									<!-- begin percentage -->
+									<div class="mb-4 text-grey">
+									</div>
+									<!-- begin info-row -->
+									<div class="d-flex">
+										<div class="d-flex align-items-center">
+											<h4 id="harvest_freq_h">Single Crop</h4>
 										</div>
 									</div>
 									<!-- end info-row -->
