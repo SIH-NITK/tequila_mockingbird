@@ -30,7 +30,7 @@ const customerBottomTabNavigator = createBottomTabNavigator({
 
 const adminBottomTabNavigator = createBottomTabNavigator({
   Home: adminHome,
-  MyInfo: notification
+  CropCycle: notification
 },
   {
     defaultNavigationOptions: () => ({}),

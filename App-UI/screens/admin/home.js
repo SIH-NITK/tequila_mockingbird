@@ -96,7 +96,8 @@ class adminHome extends React.Component {
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201812_15_2_clipped.jpg')
             ],
             graphData: [],
-            toastData:[]
+            toastData:[],
+            cropDuration:""
 
         }
         this._isMounted = false;
@@ -264,8 +265,12 @@ class adminHome extends React.Component {
         try {
             // URL = "https://google.com"
             const response = await fetch(URL);
+            // response = JSON.parse(response);
+            // console.log(response.json());
             const json = await response.json();
             // just log ‘json’
+            console.log(json);
+            // json = JSON.parse(json);
             console.log(json);
             graph_data = json.graph_data;
             // console.log("graph");
@@ -289,12 +294,94 @@ class adminHome extends React.Component {
 
 
     }
+
+    getDates(Dates1, Dates2) {
+        let month1 = Dates1[0] + Dates1[1] + Dates1[2] + Dates1[3] + Dates1[4] + Dates1[5];
+        let month2 = Dates2[0] + Dates2[1] + Dates2[2] + Dates2[3] + Dates2[4] + Dates2[5];
+        let date_label1, date_label2;
+        switch(month1) {
+            case '201701': date_label1 = '1st January, 2017';
+                break;
+            case '201702': date_label1 = '1st February, 2017';
+                break;
+            case '201703': date_label1 = '1st March, 2017';
+                break;
+            case '201704': date_label1 = '1st April, 2017';
+                break;
+            case '201705': date_label1 = '1st May, 2017';
+                break;
+            case '201706': date_label1 = '1st June, 2017';
+                break;
+            case '201707': date_label1 = '1st July, 2017';
+                break;
+            case '201708': date_label1 = '1st August, 2017';
+                break;
+            case '201709': date_label1 = '1st September, 2017';
+                break;
+            case '201710': date_label1 = '1st October, 2017';
+                break;
+            case '201711': date_label1 = '1st November, 2017';
+                break;
+            case '201712': date_label1 = '1st December, 2017';
+                break;
+            default : date_label1 = '1st December 2017';
+                break;
+        }
+        
+        switch(month2) {
+            case '201801': date_label2 = '1st January, 2018';
+                break;
+            case '201802': date_label2 = '1st February, 2018';
+                break;
+            case '201803': date_label2 = '1st March, 2018';
+                break;
+            case '201804': date_label2 = '1st April, 2018';
+                break;
+            case '201805': date_label2 = '1st May, 2018';
+                break;
+            case '201806': date_label2 = '1st June, 2018';
+                break;
+            case '201807': date_label2 = '1st July, 2018';
+                break;
+            case '201808': date_label2 = '1st August, 2018';
+                break;
+            case '201809': date_label2 = '1st September, 2018';
+                break;
+            case '201810': date_label2 = '1st October, 2018';
+                break;
+            case '201811': date_label2 = '1st November, 2018';
+                break;
+            case '201812': date_label2 = '1st December, 2018';
+                break;
+            default : date_label2 = '1st December 2018';
+                break;
+        }
+
+        return date_label1 + " - " + date_label2;
+    }
+
     showToast(){
-        console.log(this.state.toastData)
-        Dates1 = this.fromIToImage(this.state.toastData[0].img_idx[0])
-        Dates2 = this.fromIToImage(this.state.toastData[0].img_idx[1])
-        console.log(Dates1+" "+Dates2);
-        this.refs.toast.show(<View><Text style={{color:'white'}}>hello world!</Text></View>);
+        output=" "
+        console.log(this.state.toastData.length)
+        cropDuration="0";
+        if(this.state.toastData.length!=0){
+            console.log(this.state.toastData)
+            Dates1 = this.fromIToImage(this.state.toastData[0].img_idx[0])
+            Dates2 = this.fromIToImage(this.state.toastData[0].img_idx[1])
+            output = this.getDates(Dates1, Dates2)
+            console.log(output);
+            this.setState({cropDuration:this.state.toastData[0].interval_in_months});
+            cropDuration = this.state.toastData[0].interval_in_months;
+        }
+        else{
+            output = "No Vegetation"
+            console.log("empty");
+            this.setState({cropDuration:"0"});
+            cropDuration="0"
+
+        }
+     
+        this.refs.toast.show(<View><Text style={{color:'white'}}>{output}{"\n"}</Text><Text style={{color:'white'}}>Crop Duration : {cropDuration} months</Text></View>);
     }
     render() {
         // const {value} = this.state;

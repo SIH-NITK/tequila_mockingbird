@@ -1,3 +1,3 @@
-const apiURL = 'http://192.168.43.14:5000';
+const apiURL = 'http://sih-graph-api.herokuapp.com';
 
 export default apiURL;

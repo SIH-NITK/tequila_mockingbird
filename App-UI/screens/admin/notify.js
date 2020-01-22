@@ -80,29 +80,29 @@ export default class Notify extends Component {
                     <View>
                         <View >
                             <Tile
-                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}}
-                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                imageSrc={require('../../assets/rabi.jpg')}
+                                title='Rabi Crop'
                                 featured
-                                caption="Some Caption Text"
+                                caption="This Season Enjoy Rabi"
                             />
                         </View>
                         <Text>{"\n"}</Text>
                         <View >
                             <Tile
-                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/peppers.png'}}
-                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                imageSrc={require('../../assets/rabi-harvest.png')}
+                                title='Rabi Harvest Cycle'
                                 featured
-                                caption="Some Caption Text"
+                                caption="Rabi crops or rabi harvest are agricultural crops that are sown in winter and harvested in the spring in India"
                             />
                         </View>
                         <Text>{"\n"}</Text>
 
                         <View >
                             <Tile
-                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}}
-                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                imageSrc={require('../../assets/kharif.jpg')}
+                                title="Kharif Harvest Cycle"
                                 featured
-                                caption="Some Caption Text"
+                                caption="Kharif crops, monsoon crops or autumn crops are domesticated plants like rice that are cultivated and harvested in India, Pakistan and Bangladesh"
                             />
                         </View>
 
