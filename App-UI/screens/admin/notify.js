@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button, ScrollView, Image, Touchable
 
 import notification from '../../_services/notify';
 import NotifyComponent from '../../components/notifyComponent';
+import { Tile } from 'react-native-elements';
 export default class Notify extends Component {
     constructor(props) {
         super(props);
@@ -72,51 +73,45 @@ export default class Notify extends Component {
     }
 
     render() {
-        if (!this.state.picked) {
-            return (
-                <View style={{ margin: 50 }}>
-                    <TouchableHighlight style={styles.endBtn} onPress={() => {
-                        this.showDateTimePicker();
-                    }}>
-                        <Text style={styles.text}>Select a Date</Text>
-                    </TouchableHighlight>
-                    <DateTimePicker
-                        isVisible={this.state.isDateTimePickerVisible}
-                        onConfirm={this.handleDatePicked}
-                        onCancel={this.hideDateTimePicker}
-                    // color="black"
-                    />
-                </View>
 
+        return (
+            <ScrollView>
+                <View>
+                    <View>
+                        <View >
+                            <Tile
+                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}}
+                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                featured
+                                caption="Some Caption Text"
+                            />
+                        </View>
+                        <Text>{"\n"}</Text>
+                        <View >
+                            <Tile
+                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/peppers.png'}}
+                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                featured
+                                caption="Some Caption Text"
+                            />
+                        </View>
+                        <Text>{"\n"}</Text>
 
+                        <View >
+                            <Tile
+                                imageSrc={{uri:'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}}
+                                title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+                                featured
+                                caption="Some Caption Text"
+                            />
+                        </View>
 
-            );
-        }
-        else {
-            return (
-                <View style={{ flex: 1 }}>
-                    <View style={{ margin: 50 }}>
-                        <TouchableHighlight style={styles.endBtn} onPress={() => {
-                            this.showDateTimePicker();
-                        }}>
-                            <Text style={styles.text}>Select a Date</Text>
-                        </TouchableHighlight>
-                        <DateTimePicker
-                            isVisible={this.state.isDateTimePickerVisible}
-                            onConfirm={this.handleDatePicked}
-                            onCancel={this.hideDateTimePicker}
-                        />
                     </View>
-
-                    <ScrollView
-                        style={{ flex: 1 }}
-                        contentContainerStyle={{ width: '100%', alignItems: 'center', flexGrow: 1, paddingBottom: 40 }}>
-                        <View>{this.renderListofNotifyComponents()}</View>
-                    </ScrollView>
                 </View>
 
-            )
-        }
+            </ScrollView>
+
+        )
 
     }
 }

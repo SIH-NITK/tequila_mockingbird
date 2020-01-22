@@ -10,7 +10,7 @@ import adminHome from '../screens/admin/home';
 import notification from '../screens/admin/notify';
 //login route
 import loginScreen from '../screens/login-screen';
-
+import { Tile } from 'react-native-elements';
 
 const customerBottomTabNavigator = createBottomTabNavigator({
   Home:adminHome,

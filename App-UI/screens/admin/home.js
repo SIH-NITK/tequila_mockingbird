@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { StyleSheet, Text, View, Button, TextInput, FlatList, TouchableWithoutFeedback, Slider, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { Card, ListItem } from 'react-native-elements'
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
@@ -10,9 +10,12 @@ import historyLaundryScreen from '../customer/history-laundry';
 import { Dropdown } from 'react-native-material-dropdown';
 import customerDetailService from '../../_services/customer-details';
 import Modal from "react-native-modal";
-import customerLaundryDetails from '../../_services/customer-laundry-details';
+import getGraphs from '../../_services/getgraphs';
 import { StackedAreaChart } from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
+import apiUrl from '../../environment';
+import { Tile } from 'react-native-elements';
+import Toast, {DURATION} from 'react-native-easy-toast'
 class adminHome extends React.Component {
     _isMounted = false;
     constructor(props) {
@@ -66,8 +69,34 @@ class adminHome extends React.Component {
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201711_15_1_clipped.jpg'),
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201711_15_2_clipped.jpg'),
                 require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_1_clipped.jpg'),
-                require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_2_clipped.jpg')
-            ]
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201712_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201801_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201801_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201802_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201802_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201803_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201803_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201804_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201804_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201805_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201805_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201806_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201806_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201807_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201807_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201808_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201808_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201809_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201809_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201810_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201810_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201811_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201811_15_2_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201812_15_1_clipped.jpg'),
+                require('../../assets/homeImages/overlayed/awifs_ndvi_201812_15_2_clipped.jpg')
+            ],
+            graphData: [],
+            toastData:[]
 
         }
         this._isMounted = false;
@@ -211,26 +240,70 @@ class adminHome extends React.Component {
         // this.setState({urlLocation:urlLocation});
 
     }
-    handlePress(evt) {
+    handlePress = async (evt) => {
         console.log(`x coord = ${evt.nativeEvent.locationX}`);
         x_coor = evt.nativeEvent.locationX;
         y_coor = evt.nativeEvent.locationX;
 
-        y = parseInt(2118 * parseInt(y_coor) / 300);
-        x = parseInt(2135 * parseInt(x_coor) / 500);
+        y = parseInt(2118 * parseInt(y_coor) / 400);
+        x = parseInt(2135 * parseInt(x_coor) / 400);
         console.log(x + " ", y);
+
+        // getGraphs.getgraphs(x,y).then(res => {
+        //     res.json().then(data => {
+        //         console.log("hi")
+        //         data = JSON.parse(data)
+        //         console.log(data);
+        //     })
+        // });
+        var URL = apiUrl + `?r=${y}&c=${x}`;
+        URL = apiUrl + '?r=' + y + '&c=' + x;
+        // console.log(URL);
+        // console.log(typeof (URL));
+        // fetch('http://192.168.43.14:5000/?r=1115&c=674');
+        try {
+            // URL = "https://google.com"
+            const response = await fetch(URL);
+            const json = await response.json();
+            // just log ‘json’
+            console.log(json);
+            graph_data = json.graph_data;
+            // console.log("graph");
+            // console.log(graph_data);
+            arr_graph = [];
+            graph_data.map((obj, i) => {
+                arr_graph.push({
+                    month: i,
+                    apples: obj
+                })
+            })
+
+            // console.log("array");
+            // console.log(arr_graph);
+            this.setState({ graphData: arr_graph });
+            this.setState({toastData:json.crop_interval})
+        }
+        catch (e) {
+            console.log(e);
+        }
 
 
     }
-
+    showToast(){
+        console.log(this.state.toastData)
+        Dates1 = this.fromIToImage(this.state.toastData[0].img_idx[0])
+        Dates2 = this.fromIToImage(this.state.toastData[0].img_idx[1])
+        console.log(Dates1+" "+Dates2);
+        this.refs.toast.show(<View><Text style={{color:'white'}}>hello world!</Text></View>);
+    }
     render() {
         // const {value} = this.state;
         const w = Dimensions.get('window');
         var urlLocation = this.state.urlLocation;
-        console.log(this.state.urlLocation);
-        console.log(typeof (this.state.urlLocation));
+        // console.log(this.state.urlLocation);
+        // console.log(typeof (this.state.urlLocation));
         var images = this.state.images;
-        console.log(images);
+        // console.log(images);
         tab = createMaterialTopTabNavigator(
             {
                 AddLaundry: createScreen,
@@ -268,10 +341,10 @@ class adminHome extends React.Component {
 
         var url_image = this.state.urlLocation;
         var v = this.fromIToImage(value);
-        console.log(url_image);
+        // console.log(url_image);
         // var url_image = require('/home/manan/SIH/SIH-/App-UI/assets/homeImages/overlayed/awifs_ndvi_'+ v +'_clipped.jpg')
-        console.log("url" + url_image);
-        const data = [
+        // console.log("url" + url_image);
+        data = [
             {
                 month: new Date(2015, 0, 1),
                 apples: 3840,
@@ -289,15 +362,15 @@ class adminHome extends React.Component {
                 apples: 3320,
             },
         ]
- 
-        const colors = [ '#8800cc' ]
-        const keys   = [ 'apples' ]
+        data = this.state.graphData;
+        const colors = ['#8800cc']
+        const keys = ['apples']
         const svgs = [
-                    { onPress: () => console.log('apples') },
-                    { onPress: () => console.log('bananas') },
-                    { onPress: () => console.log('cherries') },
-                    { onPress: () => console.log('dates') },
-                ]
+            { onPress: () =>{console.log('apples'); this.showToast()}  },
+            { onPress: () => console.log('bananas') },
+            { onPress: () => console.log('cherries') },
+            { onPress: () => console.log('dates') },
+        ]
         return (
             <View style={styles.container}>
 
@@ -308,7 +381,7 @@ class adminHome extends React.Component {
                     onValueChange={this.change.bind(this)}
                     value={value}
                 />
-
+                <View style={{ margin: 5 }}></View>
                 <TouchableOpacity onPress={(evt) => this.handlePress(evt)} >
 
                     <Image
@@ -319,15 +392,29 @@ class adminHome extends React.Component {
                     />
                 </TouchableOpacity>
 
-                <StackedAreaChart
-                style={ { height: 200, paddingVertical: 16 } }
-                data={ data }
-                keys={ keys }
-                colors={ colors }
-                curve={ shape.curveNatural }
-                showGrid={ false }
-                svgs={ svgs }
-            />
+                <Toast
+                    ref="toast"
+                    style={{backgroundColor:'black',marginTop:100}}
+                    position='center'
+                    positionValue={2000}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{color:'white'}}
+                />
+
+                <View>
+                    <StackedAreaChart
+                        style={{ height: 200, paddingVertical: 16 }}
+                        data={data}
+                        keys={keys}
+                        colors={colors}
+                        curve={shape.curveNatural}
+                        showGrid={true}
+                        svgs={svgs}
+                    />
+                </View>
+
 
             </View>
 
@@ -338,7 +425,7 @@ export default adminHome;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop:20
+        marginTop: 20
     },
     modalContainer: {
         flex: 1,
