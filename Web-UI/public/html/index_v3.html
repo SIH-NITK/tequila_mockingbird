@@ -19,9 +19,31 @@
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
 	<link href="https://seantheme.com/color-admin/admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+	<style>
+		.image-background {
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: relative;
+		}
+
+		.image-background::after {
+			content: "";
+			background-image: url(https://www.theindiaforum.in/sites/default/files/field/image/2019/10/01/Ramkumar%20Radhakrishnan%2C%20Wikimedia-1569929663.jpeg);
+			opacity: 0.3;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: -1;
+		}
+
+	</style>
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 </head>
-<body>
+<body class="image-background">
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<span class="spinner"></span>
@@ -41,24 +63,6 @@
 					<span class="icon-bar"></span>
 				</button>
 			</div>
-			<!-- end navbar-header --><!-- begin header-nav -->
-			<ul class="navbar-nav navbar-right">
-				<li class="dropdown navbar-user">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="https://seantheme.com/color-admin/admin/assets/img/user/user-13.jpg" alt="" />
-						<span class="d-none d-md-inline">User Name</span> <b class="caret"></b>
-					</a>
-					<!--<div class="dropdown-menu dropdown-menu-right">-->
-						<!--<a href="javascript:;" class="dropdown-item">Edit Profile</a>-->
-						<!--<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>-->
-						<!--<a href="javascript:;" class="dropdown-item">Calendar</a>-->
-						<!--<a href="javascript:;" class="dropdown-item">Setting</a>-->
-						<!--<div class="dropdown-divider"></div>-->
-						<!--<a href="javascript:;" class="dropdown-item">Log Out</a>-->
-					<!--</div>-->
-				</li>
-			</ul>
-			<!-- end header-nav -->
 		</div>
 		<!-- end #header -->
 		
@@ -168,6 +172,22 @@
 										</div>
 									</div>
 									<!-- end info-row -->
+
+									<!-- begin title -->
+									<div class="d-flex mb-2" style="position: absolute; right:50px; top: 20px">
+										<h3 class="mb-0 text-red">Peak Crop Health On</h3><h3 class="mb-0" style="margin-left: 4px"></h3>
+									</div>
+									<!-- end title -->
+									<!-- begin percentage -->
+									<div class="mb-4 text-grey">
+									</div>
+									<!-- begin info-row -->
+									<div class="d-flex" style="position: absolute; right: 70px; top:60px">
+										<div class="d-flex align-items-center">
+											<h4 id="crop_health_dt_h">---</h4>
+										</div>
+									</div>
+									<!-- end info-row -->
 								</div>
 								<!-- end card-body -->
 							</div>
@@ -204,203 +224,14 @@
 			<!-- end row -->
 			<!-- begin row -->
 			<div class="row">
+				<div class="col-xl-6 col-lg-6">
 				<!-- begin col-4 -->
-				<div class="col-xl-4 col-lg-6">
-					<!-- begin card -->
-					<div class="card border-0 mb-3 bg-dark-darker text-white">
-						<!-- begin card-body -->
-						<div class="card-body" style="background: no-repeat bottom right; background-image: url(https://seantheme.com/color-admin/admin/assets/img/svg/img-4.svg); background-size: auto 60%;">
-							<!-- begin title -->
-							<div class="mb-3 text-grey">
-								<b>SALES BY SOCIAL SOURCE</b>
-								<span class="text-grey ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Sales by social source" data-placement="top" data-content="Total online store sales that came from a social referrer source."></i></span>
-							</div>
-							<!-- end title -->
-							<!-- begin sales -->
-							<h3 class="m-b-10">$<span data-animation="number" data-value="55547.89">0.00</span></h3>
-							<!-- end sales -->
-							<!-- begin percentage -->
-							<div class="text-grey m-b-1"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="45.76">0.00</span>% increased</div>
-							<!-- end percentage -->
-						</div>
-						<!-- end card-body -->
-						<!-- begin widget-list -->
-						<div class="widget-list widget-list-rounded inverse-mode">
-							<!-- begin widget-list-item -->
-							<a href="#" class="widget-list-item rounded-0 p-t-3">
-								<div class="widget-list-media icon">
-									<i class="fab fa-apple bg-indigo text-white"></i>
-								</div>
-								<div class="widget-list-content">
-									<div class="widget-list-title">Apple Store</div>
-								</div>
-								<div class="widget-list-action text-nowrap text-grey">
-									$<span data-animation="number" data-value="34840.17">0.00</span>
-								</div>
-							</a>
-							<!-- end widget-list-item -->
-							<!-- begin widget-list-item -->
-							<a href="#" class="widget-list-item">
-								<div class="widget-list-media icon">
-									<i class="fab fa-facebook-f bg-blue text-white"></i>
-								</div>
-								<div class="widget-list-content">
-									<div class="widget-list-title">Facebook</div>
-								</div>
-								<div class="widget-list-action text-nowrap text-grey">
-									$<span data-animation="number" data-value="12502.67">0.00</span>
-								</div>
-							</a>
-							<!-- end widget-list-item -->
-							<!-- begin widget-list-item -->
-							<a href="#" class="widget-list-item">
-								<div class="widget-list-media icon">
-									<i class="fab fa-twitter bg-aqua text-white"></i>
-								</div>
-								<div class="widget-list-content">
-									<div class="widget-list-title">Twitter</div>
-								</div>
-								<div class="widget-list-action text-nowrap text-grey">
-									$<span data-animation="number" data-value="4799.20">0.00</span>
-								</div>
-							</a>
-							<!-- end widget-list-item -->
-							<!-- begin widget-list-item -->
-							<a href="#" class="widget-list-item">
-								<div class="widget-list-media icon">
-									<i class="fab fa-google bg-red text-white"></i>
-								</div>
-								<div class="widget-list-content">
-									<div class="widget-list-title">Google Adwords</div>
-								</div>
-								<div class="widget-list-action text-nowrap text-grey">
-									$<span data-animation="number" data-value="3405.85">0.00</span>
-								</div>
-							</a>
-							<!-- end widget-list-item -->
-							<!-- begin widget-list-item -->
-							<a href="#" class="widget-list-item p-b-3">
-								<div class="widget-list-media icon">
-									<i class="fab fa-instagram bg-pink text-white"></i>
-								</div>
-								<div class="widget-list-content">
-									<div class="widget-list-title">Instagram</div>
-								</div>
-								<div class="widget-list-action text-nowrap text-grey">
-									$<span data-animation="number" data-value="0.00">0.00</span>
-								</div>
-							</a>
-							<!-- end widget-list-item -->
-						</div>
-						<!-- end widget-list -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end col-4 -->
-				<!-- end col-4 -->
-				<!-- begin col-4 -->
-				<div class="col-xl-4 col-lg-6">
-					<!-- begin card -->
 					<div class="card border-0 mb-3 bg-dark text-white">
 						<!-- begin card-body -->
 						<div class="card-body">
 							<!-- begin title -->
 							<div class="mb-3 text-grey">
-								<b>TOP PRODUCTS BY UNITS SOLD</b>
-								<span class="ml-2 "><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Top products with units sold" data-placement="top" data-content="Products with the most individual units sold. Includes orders from all sales channels."></i></span>
-							</div>
-							<!-- end title -->
-							<!-- begin product -->
-							<div class="d-flex align-items-center m-b-15">
-								<div class="widget-img rounded-lg m-r-10 bg-white p-3 width-30">
-									<div class="h-100 w-100" style="background: url(https://seantheme.com/color-admin/admin/assets/img/product/product-8.jpg) center no-repeat; background-size: auto 100%;"></div>
-								</div>
-								<div class="text-truncate">
-									<div>Apple iPhone XR (2019)</div>
-									<div class="text-grey">$799.00</div>
-								</div>
-								<div class="ml-auto text-center">
-									<div class="f-s-13"><span data-animation="number" data-value="195">0</span></div>
-									<div class="text-grey f-s-10">sold</div>
-								</div>
-							</div>
-							<!-- end product -->
-							<!-- begin product -->
-							<div class="d-flex align-items-center m-b-15">
-								<div class="widget-img rounded-lg m-r-10 bg-white p-3 width-30">
-									<div class="h-100 w-100" style="background: url(https://seantheme.com/color-admin/admin/assets/img/product/product-9.jpg) center no-repeat; background-size: auto 100%;"></div>
-								</div>
-								<div class="text-truncate">
-									<div>Apple iPhone XS (2019)</div>
-									<div class="text-grey">$1,199.00</div>
-								</div>
-								<div class="ml-auto text-center">
-									<div class="f-s-13"><span data-animation="number" data-value="185">0</span></div>
-									<div class="text-grey f-s-10">sold</div>
-								</div>
-							</div>
-							<!-- end product -->
-							<!-- begin product -->
-							<div class="d-flex align-items-center m-b-15">
-								<div class="widget-img rounded-lg m-r-10 bg-white p-3 width-30">
-									<div class="h-100 w-100" style="background: url(https://seantheme.com/color-admin/admin/assets/img/product/product-10.jpg) center no-repeat; background-size: auto 100%;"></div>
-								</div>
-								<div class="text-truncate">
-									<div>Apple iPhone XS Max (2019)</div>
-									<div class="text-grey">$3,399</div>
-								</div>
-								<div class="ml-auto text-center">
-									<div class="f-s-13"><span data-animation="number" data-value="129">0</span></div>
-									<div class="text-grey f-s-10">sold</div>
-								</div>
-							</div>
-							<!-- end product -->
-							<!-- begin product -->
-							<div class="d-flex align-items-center m-b-15">
-								<div class="widget-img rounded-lg m-r-10 bg-white p-3 width-30">
-									<div class="h-100 w-100" style="background: url(https://seantheme.com/color-admin/admin/assets/img/product/product-11.jpg) center no-repeat; background-size: auto 100%;"></div>
-								</div>
-								<div class="text-truncate">
-									<div>Huawei Y5 (2019)</div>
-									<div class="text-grey">$99.00</div>
-								</div>
-								<div class="ml-auto text-center">
-									<div class="f-s-13"><span data-animation="number" data-value="96">0</span></div>
-									<div class="text-grey f-s-10">sold</div>
-								</div>
-							</div>
-							<!-- end product -->
-							<!-- begin product -->
-							<div class="d-flex align-items-center">
-								<div class="widget-img rounded-lg m-r-10 bg-white p-3 width-30">
-									<div class="h-100 w-100" style="background: url(https://seantheme.com/color-admin/admin/assets/img/product/product-12.jpg) center no-repeat; background-size: auto 100%;"></div>
-								</div>
-								<div class="text-truncate">
-									<div>Huawei Nova 4 (2019)</div>
-									<div class="text-grey">$499.00</div>
-								</div>
-								<div class="ml-auto text-center">
-									<div class="f-s-13"><span data-animation="number" data-value="55">0</span></div>
-									<div class="text-grey f-s-10">sold</div>
-								</div>
-							</div>
-							<!-- end product -->
-						</div>
-						<!-- end card-body -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end col-4 -->
-				<!-- begin col-4 -->
-				<div class="col-xl-4 col-lg-6">
-					<!-- begin card -->
-					<div class="card border-0 mb-3 bg-dark text-white">
-						<!-- begin card-body -->
-						<div class="card-body">
-							<!-- begin title -->
-							<div class="mb-3 text-grey">
-								<b>MARKETING CAMPAIGN</b>
-								<span class="ml-2"><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Marketing Campaign" data-placement="top" data-content="Campaign that run for getting more returning customers."></i></span>
+								<b>CROP INFO</b>
 							</div>
 							<!-- end title -->
 							<!-- begin row -->
@@ -408,56 +239,24 @@
 								<!-- begin col-4 -->
 								<div class="col-4">
 									<div class="height-100 d-flex align-items-center justify-content-center">
-										<img src="https://seantheme.com/color-admin/admin/assets/img/svg/img-2.svg" class="mw-100 mh-100" />
+										<img src="../images/kharif1.jpg" height="150px" width="150px" />
 									</div>
 								</div>
 								<!-- end col-4 -->
 								<!-- begin col-8 -->
 								<div class="col-8">
-									<div class="m-b-2 text-truncate">Email Marketing Campaign</div>
-									<div class="m-b-2  text-grey f-s-11">Mon 12/6 - Sun 18/6</div>
-									<div class="d-flex align-items-center m-b-2">
-										<div class="flex-grow-1">
-											<div class="progress progress-xs rounded-corner bg-white-transparent-1">
-												<div class="progress-bar progress-bar-striped bg-indigo" data-animation="width" data-value="80%" style="width: 0%"></div>
-											</div>
-										</div>
-										<div class="ml-2 f-s-11 width-30 text-center"><span data-animation="number" data-value="80">0</span>%</div>
-									</div>
-									<div class="text-grey f-s-11 m-b-15 text-truncate">
-										57.5% people click the email
-									</div>
-									<a href="#" class="btn btn-xs btn-indigo f-s-10 pl-2 pr-2">View campaign</a>
-								</div>
-								<!-- end col-8 -->
-							</div>
-							<!-- end row -->
-							<hr class=" bg-white-transparent-2 m-t-20 m-b-20" />
-							<!-- begin row -->
-							<div class="row align-items-center">
-								<!-- begin col-4 -->
-								<div class="col-4">
-									<div class="height-100 d-flex align-items-center justify-content-center">
-										<img src="https://seantheme.com/color-admin/admin/assets/img/svg/img-3.svg" class="mw-100 mh-100" />
-									</div>
-								</div>
-								<!-- end col-4 -->
-								<!-- begin col-8 -->
-								<div class="col-8">
-									<div class="m-b-2 text-truncate">Facebook Marketing Campaign</div>
-									<div class="m-b-2  text-grey f-s-11">Sat 10/6 - Sun 18/6</div>
-									<div class="d-flex align-items-center m-b-2">
-										<div class="flex-grow-1">
-											<div class="progress progress-xs rounded-corner bg-white-transparent-1">
-												<div class="progress-bar progress-bar-striped bg-warning" data-animation="width" data-value="60%" style="width: 0%"></div>
-											</div>
-										</div>
-										<div class="ml-2 f-s-11 width-30 text-center"><span data-animation="number" data-value="60">0</span>%</div>
-									</div>
-									<div class="text-grey f-s-11 m-b-15 text-truncate">
-										+124k visitors from facebook
-									</div>
-									<a href="#" class="btn btn-xs btn-warning f-s-10 pl-2 pr-2">View campaign</a>
+									<h3><b>Kharif Crops</b></h3><br>
+									<h4>
+										<ul>
+											<li>Kharif crops are the crops which are sown at the beginning of the rainy season, e.g. between April and May.</li>
+											<li>These crops are known as monsoon crops.</li>
+											<li>These crops depend on the rainfall patterns.</li>
+											<li>Major Kharif crops are rice, maize, cotton, jowar, bajra etc.</li>
+											<li>It requires a lot of water and hot weather to grow.</li>
+											<li>Flowering requires shorter day length.</li>
+											<li>Harvesting months from September to October.</li>
+										</ul>
+									</h4>
 								</div>
 								<!-- end col-8 -->
 							</div>
@@ -465,10 +264,49 @@
 						</div>
 						<!-- end card-body -->
 					</div>
-					<!-- end card -->
-				</div>
-				<!-- end col-4 -->
 			</div>
+
+				<div class="col-xl-6 col-lg-6">
+					<!-- begin col-4 -->
+					<div class="card border-0 mb-3 bg-dark text-white">
+						<!-- begin card-body -->
+						<div class="card-body">
+							<!-- begin title -->
+							<div class="mb-3 text-grey">
+								<b>CROP INFO</b>
+							</div>
+							<!-- end title -->
+							<!-- begin row -->
+							<div class="row align-items-center p-b-1">
+								<!-- begin col-4 -->
+								<div class="col-4">
+									<div class="height-100 d-flex align-items-center justify-content-center">
+										<img src="../images/rabi1.jpeg" height="150px" width="150px" />
+									</div>
+								</div>
+								<!-- end col-4 -->
+								<!-- begin col-8 -->
+								<div class="col-8">
+									<h3><b>Rabi Crops</b></h3><br>
+									<h4>
+										<ul>
+											<li>Rabi crops are the crops that are sown at the end of monsoon or at the beginning of winter season, e.g. between September and October.</li>
+											<li>These crops are also known as winter or spring crops.</li>
+											<li>These crops are not affected by the rainfall.</li>
+											<li>Major Rabi crops are wheat, gram, peas, barley etc.</li>
+											<li>A warm climate is required for seed germination and cold climate for the growth of crops.</li>
+											<li>Flowering requires longer day length.
+											<li>Harvesting months from March to April.</li>
+										</ul>
+									</h4>
+								</div>
+								<!-- end col-8 -->
+							</div>
+							<!-- end row -->
+						</div>
+						<!-- end card-body -->
+					</div>
+				</div>
 			<!-- end row -->
 		</div>
 		<!-- end #content -->

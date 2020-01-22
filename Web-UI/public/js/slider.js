@@ -7,7 +7,7 @@ const img = document.querySelector('#locationImg');
 const rangeVal = document.querySelector('.range-slider__value');
 let chart = document.querySelector('#myChart');
 let myChart = null;
-const baseUrl = 'http://0.0.0.0:5000/';
+const baseUrl = 'http://sih-graph-api.herokuapp.com';
 
 let timestamps = [];
 let timestamps_display = [];
@@ -145,6 +145,8 @@ const renderGraph = (r,c) => {
             let date_of_harvest_h = document.querySelector('#date_of_harvest_h');
             let duration_harvest = document.querySelector('#harvest_duration_h');
             let crop_type_h = document.querySelector('#crop_type_h');
+            let crop_health_dt_h = document.querySelector('#crop_health_dt_h');
+
             if(res.crop_interval.length === 0){
 
                 date_of_sowing_h.innerHTML = "---";
@@ -152,9 +154,9 @@ const renderGraph = (r,c) => {
                 harvest_freq_h.innerHTML = "---";
                 crop_type_h.innerHTML = "No Vegetation";
                 duration_harvest.innerHTML = "---";
+                crop_health_dt_h.innerHTML = "---";
             }
             else{
-                crop_type_h.innerHTML = "No Vegetation";
                 if(res.crop_interval.length === 1)
                 {
                     harvest_freq_h.innerHTML = "Single Crop";
@@ -163,6 +165,7 @@ const renderGraph = (r,c) => {
                 {
                     harvest_freq_h.innerHTML = "Single Crop";
                 }
+                let healthiest_idx = 0;
                 let avg_duration = 0;
                 let largest_interval_idx = 0;
                 let diff = -1;
@@ -176,6 +179,20 @@ const renderGraph = (r,c) => {
                    }
 
                 });
+
+                let healthiest_month;
+                let healthiest_year;
+                healthiest_idx = parseInt((res.crop_interval[largest_interval_idx].img_idx[0] + res.crop_interval[largest_interval_idx].img_idx[1])/2);
+                healthiest_month = parseInt(timestamps[healthiest_idx].slice(4,6));
+                healthiest_year = parseInt(timestamps[healthiest_idx].slice(0,4));
+
+                crop_health_dt_h.innerHTML = healthiest_month + '/' + healthiest_year;
+
+                if(healthiest_month >= 4 && healthiest_month <= 10)
+                    crop_type_h.innerHTML = "Kharif";
+                else
+                    crop_type_h.innerHTML = "Rabi";
+
                 avg_duration /= parseInt(res.crop_interval.length);
                 duration_harvest.innerHTML = (res.crop_interval[largest_interval_idx].interval_in_months) + " months";
 
@@ -218,7 +235,7 @@ const f = new Flipping();
 const update = f.wrap(index => {
 
     rangeVal.innerHTML = timestamps[index];
-    img.setAttribute('src','../images/overlayed/awifs_ndvi_'+ timestamps[index] + '_clipped.jpg');
+    img.setAttribute('src','../images/overlayed_new/awifs_ndvi_'+ timestamps[index] + '_clipped.jpg');
 });
 
 const range$ = fromEvent(range, 'input').
@@ -250,6 +267,8 @@ fetch(baseUrl + '?r='+0+'&c='+0)
         let date_of_harvest_h = document.querySelector('#date_of_harvest_h');
         let duration_harvest = document.querySelector('#harvest_duration_h');
         let crop_type_h = document.querySelector('#crop_type_h');
+        let crop_health_dt_h = document.querySelector('#crop_health_dt_h');
+
 
         if(res.crop_interval.length === 0){
 
@@ -258,10 +277,11 @@ fetch(baseUrl + '?r='+0+'&c='+0)
             duration_harvest.innerHTML = "---";
             date_of_sowing_h.innerHTML = "---";
             date_of_harvest_h.innerHTML = "---";
+            crop_health_dt_h.innerHTML = "---";
         }
 
         else{
-            crop_type_h.innerHTML = "No Vegetation";
+            crop_type_h.innerHTML = "Rabi";
             if(res.crop_interval.length === 1)
             {
                 harvest_freq_h.innerHTML = "Single Crop";
@@ -272,6 +292,7 @@ fetch(baseUrl + '?r='+0+'&c='+0)
             }
 
             let largest_interval_idx = 0;
+            let healthiest_idx;
             let diff = -1;
             let avg_duration = 0;
             res.crop_interval.map((interval,idx) => {
@@ -283,6 +304,20 @@ fetch(baseUrl + '?r='+0+'&c='+0)
                     largest_interval_idx = idx;
                 }
             });
+
+            let healthiest_month;
+            let healthiest_year;
+            healthiest_idx = parseInt((res.crop_interval[largest_interval_idx].img_idx[0] + res.crop_interval[largest_interval_idx].img_idx[1])/2);
+            healthiest_month = parseInt(timestamps[healthiest_idx].slice(4,6));
+            healthiest_year = parseInt(timestamps[healthiest_idx].slice(0,4));
+
+            crop_health_dt_h.innerHTML = healthiest_month + '/' + healthiest_year;
+
+            if(healthiest_month >= 4 && healthiest_month <= 10)
+                crop_type_h.innerHTML = "Kharif";
+            else
+                crop_type_h.innerHTML = "Rabi";
+
             avg_duration /= parseInt(res.crop_interval.length);
             duration_harvest.innerHTML = res.crop_interval[largest_interval_idx].interval_in_months + " months";
 
@@ -298,7 +333,7 @@ fetch(baseUrl + '?r='+0+'&c='+0)
         myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: timestamps_display,
+                labels: timestamps,
                 datasets: [{
                     label: 'Harvest duration',
                     data: duration_arr,
@@ -310,12 +345,25 @@ fetch(baseUrl + '?r='+0+'&c='+0)
                 }]
             },
             options:{
+                legend: {
+                    labels: {
+                        fontColor: 'black',
+                    }
+                },
                 scales:{
                     yAxes:[{
                         ticks: {
                             min:0,
-                            max:255
-                        }
+                            max:255,
+                            fontColor: 'black'
+                        },
+                        gridLines: { color: 'black'}
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'black'
+                        },
+                        gridLines: {color: 'black'}
                     }]
                 }
             }

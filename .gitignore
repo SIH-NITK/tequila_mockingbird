@@ -1,1 +1,10 @@
 .idea/**
+.vscode/
+overlayed/*
+processed/*
+processed2/*
+processed3/*
+colored/*
+data/*final.zip
+overlayed.zip
+.vscode/
